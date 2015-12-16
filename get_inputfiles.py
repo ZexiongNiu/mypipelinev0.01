@@ -128,34 +128,6 @@ def isfile(afile):
     else:
         return False
 
-def bamMaintain(asample,indir,suffixes,classedbam,datas,rgneed):
-    mergebam = classedbam['merge.bam'][0]
-    haveall = True
-    if isfile(mergebam+'.bai'):
-        rg = rg_idInbam(mergebam)
-        for arg in rgneed:
-            if arg not in rg:
-                haveall = False
-                #判断这个lane的sort.bam文件存在与否，是否完整
-                havesortbam = False
-                sortbamO = True
-                if havesortbam and sortbamO:
-                    #datas中这个lane的初始数据可以添加这个bam文件，datas中单个lane的优先选择bam
-                elif havesortbam:
-                    #这个sortbam要删除
-                else:
-                    #是否有cleandata和rawdata，有就全删掉
-        if not haveall:
-            #merge.bam改名为merge.tmp.bam,加到filesneedtoadd中，merge完删掉
-        else:
-            #看后面做到了什么程度，如是merge.bam,merge.realn.recal.bam,还是variation，以这些文件作为这个样本的输入
-    else:
-
-
-    for asuffix in suffixes:
-        if
-
-
 if __name__ == "__main__":
     datas,samples,filesneedtoadd = parseconfig('config')
     print "datas========================================================================================================"
